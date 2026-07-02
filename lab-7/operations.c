@@ -189,21 +189,3 @@ void main()
     ele = countnode();
     printf("\n total number of nodes are %d\n", ele);
 }
-/*
-int i=0
-
-void change()
-{
-    i=10;
-}
-void printchange()
-{
-    printf("%d",i);
-}
-
-void main()
-{
-    change();
-    printchange();
-    printf("%d",i);
-}*/
