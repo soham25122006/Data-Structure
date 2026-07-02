@@ -1,3 +1,4 @@
+//WAP to check whether 2 singly linked lists are same or not.
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
