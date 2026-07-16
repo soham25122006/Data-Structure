@@ -73,11 +73,13 @@ void enterChoice(playlist **list)
             break;
         // search a song
         case 6:
-
+            printf("enter the song that you want to search :-");
+            fgets(s,50,stdin);
+            search_song(*list);
             break;
         // shuffle list
         case 7:
-
+            shufflelist(list);
             break;
         // repeat song
         case 8:
