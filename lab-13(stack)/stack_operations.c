@@ -11,7 +11,7 @@ typedef struct
     int *array;
 } stack;
 
-void createstack(stack *s)
+void initializestack(stack *s)
 {
     int n = 10;
     (*s).top = -1;
@@ -64,7 +64,7 @@ void printstack(stack s)
     }
     for (int i = s.top; i >= 0; i--)
     {
-        printf("%d ", s.array[i]);
+        printf("%d\n", s.array[i]);
     }
     printf("\n");
 }
@@ -90,7 +90,7 @@ int peep(stack s, int i)
     return s.array[s.top - i + 1];
 }
 
-void ele_at_specific_point(stack *s, int position, int value)
+void add_ele_at_specific_point(stack *s, int position, int value)
 {
     int i;
     if (position > s->top)
@@ -106,7 +106,7 @@ void ele_at_specific_point(stack *s, int position, int value)
     s->top++;
     for (i = s->top; i > s->top - position + 1; i--)
     {
-        s->array[i] = s->array[i-1];
+        s->array[i] = s->array[i - 1];
     }
     s->array[i] = value;
 }
@@ -114,9 +114,9 @@ void ele_at_specific_point(stack *s, int position, int value)
 void change(stack s, int position, int value)
 {
     int i;
-    if (s.top - position + 1)
+    if (s.top - position + 1 <= -1)
     {
-        printf("element Not available");
+        printf("\nelement Not available\n");
         return;
     }
     s.array[s.top - position + 1] = value;
@@ -125,20 +125,24 @@ void change(stack s, int position, int value)
 void main()
 {
     stack s1;
-    createstack(&s1);
+    initializestack(&s1);
 
     push(&s1, 132);
     push(&s1, 13);
     push(&s1, 21);
     push(&s1, 212);
-
+    //to take input 
     input(&s1);
     printstack(s1);
 
     printf("popped element is %d\n", pop(&s1));
     printstack(s1);
 
-    ele_at_specific_point(&s1, 3, 12);
+    add_ele_at_specific_point(&s1, 3, 12);
     printstack(s1);
-    printf("peep :== %d", peep(s1, 3));
+
+    printf("peep :== %d\n", peep(s1, 3));
+
+    change(s1, 2, 31);
+    printstack(s1);
 }
