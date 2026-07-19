@@ -49,7 +49,7 @@ char pop(Stack *s)
 
     return s->array[s->top--];
 }
-void processString(char str[],int n)
+void processString(char str[], int n)
 {
     Stack s;
     initialize(&s, n);
@@ -60,7 +60,7 @@ void processString(char str[],int n)
     {
         if (str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u')
         {
-            s.top=-1;
+            s.top = -1;
             int k = 0;
             for (int j = 0; j < i; j++)
             {
@@ -87,7 +87,7 @@ int main()
     int num;
     printf("enter nuber of testcase:=");
     scanf("%d", &num);
-    while (num--)
+    while (num != 0)
     {
         int n;
         printf("enter the size of string:=");
@@ -97,8 +97,9 @@ int main()
         char str[n + 1];
         printf("enter the string to reverse it :=");
         scanf("%s", str);
+        num--;
 
-        processString(str,n);
+        processString(str, n);
     }
     return 0;
 }
