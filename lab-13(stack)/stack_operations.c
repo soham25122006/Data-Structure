@@ -9,7 +9,7 @@ typedef struct
     int top;
     int size;
     int *array;
-} stack;
+}stack;
 
 void initializestack(stack *s)
 {

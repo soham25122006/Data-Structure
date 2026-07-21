@@ -49,7 +49,7 @@ char pop(Stack *s)
 
     return s->array[s->top--];
 }
-void processString(char str[], int n)
+void reverseStringFromVowel(char str[], int n)
 {
     Stack s;
     initialize(&s, n);
@@ -99,7 +99,7 @@ int main()
         scanf("%s", str);
         num--;
 
-        processString(str, n);
+        reverseStringFromVowel(str, n);
     }
     return 0;
 }
