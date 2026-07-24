@@ -91,7 +91,7 @@ void main()
             enQueue(&q, ele);
             break;
         case 2:
-            printf("\ndeleted element is %d\n",deQueue(&q));
+            printf("\ndeleted element is %d\n", deQueue(&q));
             break;
         case 3:
             display(q);
