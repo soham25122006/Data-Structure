@@ -1,10 +1,3 @@
-// Write a menu driven program to implement Binary Search Tree (BST) & perform following operations:
-//  Insert a node
-//  Delete a node
-//  Search a node
-//  Preorder Traversal
-//  Postorder Traversal
-//  Inorder Traversal
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct Node
@@ -22,25 +15,58 @@ Node *createNode(int x)
     newnode->right = NULL;
     return newnode;
 }
-void insert(Node **root)
+int insert(Node **root)
 {
-    int choice,x;
-    printf("enter 1 if you want to enter a value \n enter 2 if you want to set the value to NULL value\n");
+    int choice, x;
+
+    printf("Enter 1 to insert a value\n");
+    printf("Enter 2 to set pointer value to NULL\n");
+    printf("Enter 3 to stop: ");
     scanf("%d", &choice);
-    if(choice==2)
+
+    if (choice == 3)
     {
-        return NULL;
+        return 1;
     }
-    scanf("%d",&x);
-    if (*root == NULL)
+    if(choice == 1)
     {
-        (*root) = createNode(x);
+        if (*root == NULL)
+        {
+            printf("Enter the value: ");
+            scanf("%d", &x);
+    
+            *root = createNode(x);
+        }
     }
 
+    if (insert(&(*root)->left) == 1)
+        return 1;
+
+    if (insert(&(*root)->right) == 1)
+        return 1;
+
+    return 0;
+}
+void inOrderTreverse(Node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    if (root->left != NULL)
+    {
+        inOrderTreverse(root->left);
+    }
+    printf(" %d ", root->data);
+    if (root->right != NULL)
+    {
+        inOrderTreverse(root->right);
+    }
 }
 int main()
 {
     Node *root = NULL;
     insert(&root);
+    inOrderTreverse(root);
     return 0;
 }

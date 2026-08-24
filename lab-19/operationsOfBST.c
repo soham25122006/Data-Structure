@@ -38,6 +38,10 @@ void insert(Node **root, int x)
         insert(&((*root)->left), x);
     }
 }
+Node *inOrderSucessor()
+{
+
+}
 Node *delete(Node *root, int x)
 {
     if (root == NULL)
@@ -57,17 +61,24 @@ Node *delete(Node *root, int x)
         if (root->left == NULL && root->right == NULL)
         {
             free(root);
+            return NULL;
         }
         else if (root->left == NULL && root->right != NULL)
         {
+            Node *temp=root->right;
             free(root);
+            return temp;
         }
         else if (root->left != NULL && root->right == NULL)
         {
+            Node *temp=root->left;
             free(root);
+            return temp;
         }
         else if (root->left != NULL && root->right != NULL)
         {
+            Node *in=inOrderSucessor(root->right);
+            in->
             free(root);
         }
     }
